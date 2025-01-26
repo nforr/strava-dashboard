@@ -32,7 +32,6 @@ session.fetch_token(
 )
 
 response = session.get("https://www.strava.com/api/v3/athlete")
-
 print("\n\n\n")
 print(f"Response Status: {response.status_code}")
 print(f"Response Reason: {response.reason}")
