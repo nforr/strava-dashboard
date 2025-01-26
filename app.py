@@ -1,12 +1,7 @@
-import dash
-from dash import dcc, html
-from dash.dependencies import Input, Output
-import plotly.graph_objs as go
-import numpy as np
-import requests
-import urllib.parse
+"""
+This is currently the main app file 
+"""
 import os
-import json
 from requests_oauthlib import OAuth2Session
 from dotenv import load_dotenv
 
@@ -18,18 +13,18 @@ REDIRECT_URL = 'https://127.0.0.1:5000'
 
 session = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URL)
 
-auth_base_url = "https://www.strava.com/oauth/authorize"
+AUTH_BASE_URL = "https://www.strava.com/oauth/authorize"
 session.scope = ["profile:read_all"]
 
-auth_link = session.authorization_url(auth_base_url)
+auth_link = session.authorization_url(AUTH_BASE_URL)
 
 print(f'Click Here: {auth_link[0]}')
 
 redirect_response = input("Paste URL Here: ")
 
-token_url = "https://www.strava.com/api/v3/oauth/token"
+TOKEN_URL = "https://www.strava.com/api/v3/oauth/token"
 session.fetch_token(
-    token_url=token_url,
+    token_url=TOKEN_URL,
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
     authorization_response=redirect_response,
