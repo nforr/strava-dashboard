@@ -39,6 +39,6 @@ six==1.17.0
 tenacity==9.0.0
 tomlkit==0.13.2
 tzdata==2025.1
-urllib3==2.3.0
+urllib3==2.2.3
 Werkzeug==3.0.6
 wrapt==1.17.2
